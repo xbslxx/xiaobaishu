@@ -1,0 +1,30 @@
+#include“iostream”
+#include“algorithm”
+using namespace std;
+int main()
+{
+    int n,i,m=0,s,max=0,q,*a; //用m标记元素，用s来统计元素重数，用max标记出现的最大，q表示重数对应的元素
+    scanf("%d",&n);
+    printf("请输入6个数字：");
+    a=new int[n];
+ 
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    sort(a,a+n);
+    for(i=0;i<n;i++)
+    {
+        if(m!=a[i])
+            s=1;
+        else
+            s++;
+        m=a[i];
+        if(s>max)
+        {
+            q=m;
+            max=s;
+        }
+    }
+    printf("\n");
+    printf("众数是：%d\n重数是：%d\n",q,max);
+    return 0;    
+}
